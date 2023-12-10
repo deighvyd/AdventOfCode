@@ -1,0 +1,39 @@
+﻿using System.Runtime.CompilerServices;
+using System.Text;
+
+using AoC.Shared;
+
+namespace AoC.Twenty23
+{
+	internal class Day1 : Day
+	{
+		public Day1() {}
+
+		protected override uint DayNum => n;
+
+		protected override int GetTestResult(DayPart part)
+		{
+			switch (part)
+			{
+				case DayPart.One:
+					return 0;
+				case DayPart.Two:
+					return -1;
+				default:
+					throw new ArgumentException($"Unknown DayPart - {part}");
+			}
+		}
+
+		protected override int SolvePartOne(string[] input)
+		{
+			return 0;
+		}
+
+		private bool IsEnglishNumber()
+
+		protected override int SolvePartTwo(string[] input)
+		{
+            return 0;
+		}
+	}
+}
