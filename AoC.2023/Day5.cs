@@ -19,7 +19,7 @@ namespace AoC.Twenty23
 				case DayPart.One:
 					return 35;
 				case DayPart.Two:
-					return -1;
+					return 46;
 				default:
 					throw new ArgumentException($"Unknown DayPart - {part}");
 			}
@@ -98,7 +98,56 @@ namespace AoC.Twenty23
 
 		protected override long SolvePartTwo(string[] input)
 		{
-            return 0;
+			List<ulong> seedList = input[0].Split(':')[1].ReadNumbers<ulong>();
+
+			List<List<Range>> maps = new();
+			for (int i = 1 ; i < input.Length ; ++i)
+			{
+				string line = input[i];
+				if (line.IsNullOrWhitespace())
+				{
+					continue;
+				}
+
+				if (!char.IsDigit(line[0]))
+				{
+					maps.Add(new());
+				}
+				else
+				{
+					maps.Last().Add(new(line));
+				}
+			}
+
+            ulong bestLoc = int.MaxValue;
+			for (int i = 0 ; i < seedList.Count ; i += 2)
+			{
+				ulong startIdx = seedList[i];
+				ulong endIdx  = seedList[i] + seedList[i + 1];
+				Console.WriteLine($"\tProcessing {(i / 2) + 1}:\t{startIdx}\t->\t{endIdx}\t({endIdx - startIdx})...");
+				for (ulong j = seedList[i] ; j < (seedList[i] + seedList[i + 1]) ; ++j)
+				{
+					ulong lookup = j;
+					foreach (List<Range> map in maps)
+					{
+						ulong result = lookup;
+						foreach (Range range in map)
+						{
+							if (lookup >= range.SourceStart && lookup < range.SourceEnd)
+							{
+								result = range.DestStart + (lookup - range.SourceStart);
+								break;
+							}
+						}
+						 
+						lookup = result;
+					}
+
+					bestLoc = ulong.Min(bestLoc, lookup);
+				}
+			}
+
+			return (long)bestLoc;
 		}
 	}
 }
