@@ -95,7 +95,7 @@ namespace AoC.Twenty23
 					if (!possible)
 					{
 						break;
-                    }
+					}
 				}
 
 				if (possible)
