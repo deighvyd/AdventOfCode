@@ -5,18 +5,18 @@ using AoC.Shared;
 
 namespace AoC.Twenty23
 {
-	internal class Day1 : Day
+	internal class Day{0} : Day
 	{
-		public Day1() {}
+		public Day{0}() {}
 
-		protected override uint DayNum => n;
+		protected override uint DayNum => {0};
 
 		protected override int GetTestResult(DayPart part)
 		{
 			switch (part)
 			{
 				case DayPart.One:
-					return 0;
+					return -1;
 				case DayPart.Two:
 					return -1;
 				default:
@@ -28,8 +28,6 @@ namespace AoC.Twenty23
 		{
 			return 0;
 		}
-
-		private bool IsEnglishNumber()
 
 		protected override int SolvePartTwo(string[] input)
 		{
