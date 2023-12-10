@@ -25,23 +25,6 @@ namespace AoC.Twenty23
 			}
 		}
 
-		private List<int> ReadNumbers(string list)
-		{
-			List<int> numbers = new List<int>();
-			string[] numTokens = list.Split(' ');
-			foreach (string token in numTokens) 
-			{
-				if (token.IsNullOrWhitespace())
-				{
-					continue;
-				}
-
-				numbers.Add(int.Parse(token.Trim()));
-			}
-
-			return numbers;
-		}
-
 		private struct Card
 		{
 			public List<int> WinningNumbers;
@@ -57,8 +40,8 @@ namespace AoC.Twenty23
 				string[] gameTokens = line.Split(':');
 				string[] numberTokens = gameTokens[1].Split('|');
 
-				List<int> winningNumbers = ReadNumbers(numberTokens[0].Trim());
-				List<int> haveNumbers = ReadNumbers(numberTokens[1].Trim());
+				List<int> winningNumbers = numberTokens[0].ReadNumbers();
+				List<int> haveNumbers = numberTokens[1].ReadNumbers();
 
 				Card card = new();
 				card.WinningNumbers = winningNumbers;
