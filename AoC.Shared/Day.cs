@@ -6,7 +6,7 @@
 
 		protected abstract uint DayNum { get; }
 
-		protected abstract int GetTestResult(DayPart part);
+		protected abstract long GetTestResult(DayPart part);
 
 		private string[] ReadInput(DayPart part, bool test)
 		{
@@ -17,16 +17,16 @@
 
 		public void Solve(DayPart part)
 		{
-			int testResult = Solve(part, true);
+			long testResult = Solve(part, true);
 			Console.WriteLine($"Day {DayNum}.{part.ToDigitString()} Test Result = {testResult} Expected Result = {GetTestResult(part)}");
 			if (testResult == GetTestResult(part))
 			{
-				int result = Solve(part, false);
+				long result = Solve(part, false);
 				Console.WriteLine($"Day {DayNum}.{part.ToDigitString()} Result = {result}");
 			}
 		}
 
-		private int Solve(DayPart part, bool test)
+		private long Solve(DayPart part, bool test)
 		{
 			switch (part)
 			{
@@ -39,7 +39,7 @@
 			}
 		}
 
-		protected abstract int SolvePartOne(string[] input);
-		protected abstract int SolvePartTwo(string[] input);
+		protected abstract long SolvePartOne(string[] input);
+		protected abstract long SolvePartTwo(string[] input);
 	}
 }

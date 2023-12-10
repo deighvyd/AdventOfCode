@@ -12,7 +12,7 @@ namespace AoC.Twenty23
 
 		protected override uint DayNum => 3;
 
-		protected override int GetTestResult(DayPart part)
+		protected override long GetTestResult(DayPart part)
 		{
 			switch (part)
 			{
@@ -117,7 +117,7 @@ namespace AoC.Twenty23
 			return (parts, symbols);
 		}
 
-		protected override int SolvePartOne(string[] input)
+		protected override long SolvePartOne(string[] input)
 		{
 			(List<Part> parts, List<Symbol> symbols) = ReadSchematic(input);
 
@@ -137,7 +137,7 @@ namespace AoC.Twenty23
 			return total;
 		}
 
-		protected override int SolvePartTwo(string[] input)
+		protected override long SolvePartTwo(string[] input)
 		{
 			(List<Part> parts, List<Symbol> symbols) = ReadSchematic(input);
 

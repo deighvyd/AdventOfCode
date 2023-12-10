@@ -12,7 +12,7 @@ namespace AoC.Twenty23
 
 		protected override uint DayNum => 4;
 
-		protected override int GetTestResult(DayPart part)
+		protected override long GetTestResult(DayPart part)
 		{
 			switch (part)
 			{
@@ -40,8 +40,8 @@ namespace AoC.Twenty23
 				string[] gameTokens = line.Split(':');
 				string[] numberTokens = gameTokens[1].Split('|');
 
-				List<int> winningNumbers = numberTokens[0].ReadNumbers();
-				List<int> haveNumbers = numberTokens[1].ReadNumbers();
+				List<int> winningNumbers = numberTokens[0].ReadNumbers<int>();
+				List<int> haveNumbers = numberTokens[1].ReadNumbers<int>();
 
 				Card card = new();
 				card.WinningNumbers = winningNumbers;
@@ -53,7 +53,7 @@ namespace AoC.Twenty23
 			return cards;
 		}
 
-		protected override int SolvePartOne(string[] input)
+		protected override long SolvePartOne(string[] input)
 		{
 			List<Card> cards = ReadCards(input);
 
@@ -82,7 +82,7 @@ namespace AoC.Twenty23
 			return total;
 		}
 
-		protected override int SolvePartTwo(string[] input)
+		protected override long SolvePartTwo(string[] input)
 		{
 			List<Card> cards = ReadCards(input);
 			List<int> cardCounts = new List<int>();

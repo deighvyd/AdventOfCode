@@ -11,7 +11,7 @@ namespace AoC.Twenty23
 
 		protected override uint DayNum => 1;
 
-		protected override int GetTestResult(DayPart part)
+		protected override long GetTestResult(DayPart part)
 		{
 			switch (part)
 			{
@@ -24,7 +24,7 @@ namespace AoC.Twenty23
 			}
 		}
 
-		protected override int SolvePartOne(string[] input)
+		protected override long SolvePartOne(string[] input)
 		{
 			int total = 0;
 			foreach (string line in input)
@@ -94,7 +94,7 @@ namespace AoC.Twenty23
 			return 0;
 		}
 
-		protected override int SolvePartTwo(string[] input)
+		protected override long SolvePartTwo(string[] input)
 		{
 			int total = 0;
 			foreach (string line in input)

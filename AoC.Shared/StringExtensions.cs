@@ -1,4 +1,6 @@
-﻿namespace AoC.Shared
+﻿using System.Numerics;
+
+namespace AoC.Shared
 {
 	public static class StringExtensions
 	{
@@ -17,9 +19,9 @@
 			return false;
 		}
 
-		public static List<int> ReadNumbers(this string value)
+		public static List<T> ReadNumbers<T>(this string value) where T : IBinaryInteger<T>
 		{
-			List<int> numbers = new List<int>();
+			List<T> numbers = new List<T>();
 
 			string[] numTokens = value.Trim().Split(' ');
 			foreach (string token in numTokens) 
@@ -29,7 +31,7 @@
 					continue;
 				}
 
-				numbers.Add(int.Parse(token.Trim()));
+				numbers.Add(T.Parse(token.Trim(), System.Globalization.NumberStyles.Integer, null));
 			}
 
 			return numbers;
