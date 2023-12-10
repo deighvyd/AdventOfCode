@@ -2,14 +2,14 @@
 {
 	public static class StringExtensions
 	{
-		public static bool IsNullOrEmpty(this string value)
+		public static bool IsNullOrWhitespace(this string value)
 		{
 			if (value == null)
 			{
 				return true;
 			}
 
-			if (value.Length == 0) 
+			if (value.Trim().Length == 0) 
 			{
 				return true;
 			}

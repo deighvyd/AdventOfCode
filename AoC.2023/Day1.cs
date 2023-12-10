@@ -67,7 +67,7 @@ namespace AoC.Twenty23
 
 		private int GetSecondNum(string s)
 		{
-			if (s.IsNullOrEmpty())
+			if (s.IsNullOrWhitespace())
 			{
 				return 0;
 			}
