@@ -11,7 +11,7 @@ namespace AoC.Twenty23
 
 		static void Main(string[] args)
 		{
-			Day day = new Day3();
+			Day day = new Day4();
 			day.Solve(DayPart.One);
 			day.Solve(DayPart.Two);
 		}
